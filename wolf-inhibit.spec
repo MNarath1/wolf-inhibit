@@ -9,7 +9,6 @@ URL:            https://github.com/MNarath1/wolf-inhibit
 Source:         https://github.com/MNarath1/wolf-inhibit/archive/refs/tags/1.0.tar.gz
 BuildArch:      noarch
 
-Requires:       docker
 
 BuildRequires:  systemd-rpm-macros
 
