@@ -1,0 +1,12 @@
+[Unit]
+Description=Inhibit sleep during active Wolf sessions
+After=docker.service
+
+[Service]
+ExecStart=systemd-inhibit --what=sleep --mode=block --who=Wolf --why="Wolf session active" /usr/local/bin/wolf-inhibit.sh
+Type=simple
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=default.target
