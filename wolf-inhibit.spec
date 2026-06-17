@@ -1,13 +1,14 @@
-Name:           Wolf-inhibit-script
+Name:           wolf-inhibit
 Version:        1.0
 Release:        1%{?dist}
+License:        MIT
 Summary:        Inhibits sleep when wolf session is active
 
 URL:            https://github.com/MNarath1/wolf-inhibit
 
 Source:         https://github.com/MNarath1/wolf-inhibit/archive/refs/tags/1.0.tar.gz
 BuildArch:      noarch
-License:        MIT
+
 Requires:       docker
 
 BuildRequires:  systemd-rpm-macros
@@ -21,7 +22,9 @@ Inhibits Sleep when active wolf session is detected
 %build
 
 %install
-cp -v ./wolf-inhibit.sh %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
+mkdir -p %{buildroot}%{_unitdir}
+cp -v ./wolf-inhibit %{buildroot}%{_bindir}
 cp -v ./wolf-inhibit.service %{buildroot}%{_unitdir}
 
 # Do post-installation
@@ -40,5 +43,5 @@ systemctl enable wolf-inhibit --now
 # are going to be installed into target system where the rpm is installed.
 %files
 %license LICENSE
-%{_bindir}/wolf-inhibit.sh
+%{_bindir}/wolf-inhibit
 %{_unitdir}/wolf-inhibit.service
