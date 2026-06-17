@@ -7,7 +7,7 @@ URL:            https://github.com/MNarath1/wolf-inhibit
 
 Source:         https://github.com/MNarath1/wolf-inhibit/archive/refs/tags/1.0.tar.gz
 BuildArch:      noarch
-
+License:        MIT
 Requires:       docker
 
 BuildRequires:  systemd-rpm-macros
@@ -39,5 +39,6 @@ systemctl enable wolf-inhibit --now
 # This lists all the files that are included in the rpm package and that
 # are going to be installed into target system where the rpm is installed.
 %files
+%license LICENSE
 %{_bindir}/wolf-inhibit.sh
 %{_unitdir}/wolf-inhibit.service
